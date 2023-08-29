@@ -1,0 +1,11 @@
+.nav-link {
+  @apply hover:bg-primary/80 hover:text-white;
+  @apply text-muted;
+  @apply rounded-lg px-2 py-2;
+  @apply transition-colors duration-100;
+  @apply flex items-center gap-3;
+
+  &.active {
+    @apply bg-primary/80 text-white;
+  }
+}

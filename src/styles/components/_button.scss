@@ -1,0 +1,26 @@
+.icon {
+  &-xs,
+  &-sm {
+    svg {
+      @apply h-4 w-4;
+    }
+  }
+
+  &-md {
+    svg {
+      @apply h-5 w-5;
+    }
+  }
+
+  &-lg {
+    svg {
+      @apply h-6 w-6;
+    }
+  }
+
+  &-xl {
+    svg {
+      @apply h-7 w-7;
+    }
+  }
+}
