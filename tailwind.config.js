@@ -3,9 +3,6 @@
 const animate = require('tailwindcss-animate');
 const scrollbar = require('tailwind-scrollbar');
 const scrollbarHide = require('tailwind-scrollbar-hide');
-;
-
-
 const colors = require('tailwindcss/colors');
 const plugin = require('tailwindcss/plugin');
 const theme = require('tailwindcss/defaultTheme');
