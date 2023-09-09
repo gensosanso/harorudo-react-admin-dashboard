@@ -2,41 +2,47 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Loader from '../common/components/Loader';
 
+// Community
+import CommunityModule from '../features/community';
+import CommunityRoute from '../features/community/routes/Routes';
+
+// authModule
+import AuthModule from '../features/Auth';
+import AuthModuleRoutes from '../features/Auth/routes/Routes';
+
+import SecurityServicesModule from '../features/SecurityService';
+import SecurityServicesRoute from '../features/SecurityService/routes/Routes';
+
 const AppSpace = lazy(() => import('../layouts/Space'));
 
-// Documentation
-const Button = lazy(() => import('../docs/Button'));
-const Table = lazy(() => import('../docs/Table'));
-const Input = lazy(() => import('../docs/Input'));
+// const Community = lazy(() => import('../features/community'));
+// const CommunityDetails = lazy(() => import('../features/community/details'));
+
+const Home = lazy(() => import('../features/dashboard'));
 
 const router = createBrowserRouter([
+  { path: '/', element: <AuthModule />, children: AuthModuleRoutes },
   {
     path: '/',
     element: <AppSpace />,
     children: [
       {
-        path: '/button',
+        path: 'home',
         element: (
           <Suspense fallback={<Loader />}>
-            <Button />
+            <Home />
           </Suspense>
         ),
       },
       {
-        path: '/table',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Table />
-          </Suspense>
-        ),
+        path: 'community',
+        element: <CommunityModule />,
+        children: CommunityRoute,
       },
       {
-        path: '/date-picker',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Input />
-          </Suspense>
-        ),
+        path: 'securityServices',
+        element: <SecurityServicesModule />,
+        children: SecurityServicesRoute,
       },
     ],
   },
